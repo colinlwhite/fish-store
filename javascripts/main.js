@@ -55,7 +55,13 @@ const writeFishes = (arrayOfFishes) => {
         //alert('sale fish');
         // grab all of the divs with the class of fish, give me just the ones WITHOUT the class 'on-sale' and HIDE
         $('.fish').not('.on-sale').toggle();
-        
+        $('#show-sale').text((i, text) => {
+            if (text === "Show Sale Fish") {
+                return "Show All"
+            } else {
+                return "Show Sale Fish";
+            }
+        })
     });
   
   // Load Fish
