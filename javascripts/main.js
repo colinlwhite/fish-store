@@ -50,6 +50,13 @@ const writeFishes = (arrayOfFishes) => {
       $("#available").append(fishToMove);
       $(e.target).text('Add To Basket').addClass('add').removeClass('remove');
     })
+
+    $("#show-sale").click(() => {
+        //alert('sale fish');
+        // grab all of the divs with the class of fish, give me just the ones WITHOUT the class 'on-sale' and HIDE
+        $('.fish').not('.on-sale').toggle();
+        
+    });
   
   // Load Fish
   $.get('../db/fishes.json')
