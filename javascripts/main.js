@@ -1,3 +1,14 @@
+const discount = .12;
+
+const applySale = () => {
+    $(".on-sale").each((i, fish) => {
+        const fullPrice = $(fish).find('.price');
+        const newPrice = (parseInt(fullPrice.html()) * (1 - discount)).toFixed(2);
+        fullPrice.html(newPrice);
+    })
+}
+
+// Add fish to "Basket" 
 const writeFishes = (arrayOfFishes) => {
     let domString = '';
     arrayOfFishes.forEach((fish) => {
@@ -70,6 +81,7 @@ const writeFishes = (arrayOfFishes) => {
     .done((data) => {
       console.log(data);
       writeFishes(data.fishes);
+      applySale();
     })
     .fail((error) => {
       console.error(error);
